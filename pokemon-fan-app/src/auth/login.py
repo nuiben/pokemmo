@@ -1,6 +1,11 @@
 class LoginManager:
     def __init__(self):
         self.sessions = {}
+        self.app = None  # Placeholder for the Flask app instance
+
+    def init_app(self, app):
+        """Bind the Flask app instance to the LoginManager."""
+        self.app = app
 
     def login(self, username, password):
         # Here you would typically check the username and password against a database

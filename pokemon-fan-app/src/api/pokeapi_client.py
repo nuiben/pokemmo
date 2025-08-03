@@ -1,3 +1,5 @@
+import requests
+
 class PokeAPIClient:
     def __init__(self):
         self.base_url = "https://pokeapi.co/api/v2"

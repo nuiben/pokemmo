@@ -6,12 +6,18 @@ from routes.catch import catch_pokemon
 from routes.challenge import challenge_trainer
 from routes.region import get_daily_region
 
-SECRET_KEY = load_dotenv()  # Load environment variables from .env
+load_dotenv()
+SECRET_KEY = "SECRET_KEY"
 
 app = Flask(__name__)
 app.config[SECRET_KEY] = os.getenv(SECRET_KEY)
 
-login_manager = LoginManager(app)
+login_manager = LoginManager()
+login_manager.init_app(app)
+
+@app.route('/')
+def home():
+    return "Welcome to the Pokemon Fan App!"
 
 @app.route('/catch', methods=['POST'])
 def catch():
