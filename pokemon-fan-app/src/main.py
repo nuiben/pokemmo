@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask, render_template
 from dotenv import load_dotenv
 from auth.login import LoginManager
 from routes.catch import catch_pokemon
@@ -17,7 +17,7 @@ login_manager.init_app(app)
 
 @app.route('/')
 def home():
-    return "Welcome to the Pokemon Fan App!"
+    return render_template('home.html')  # Render the HTML template
 
 @app.route('/catch', methods=['POST'])
 def catch():
